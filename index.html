@@ -1,517 +1,546 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partha Mallik | Master’s Student in Physics</title>
-  <meta
-    name="description"
-    content="Partha Mallik is a master's student in Physics focused on theoretical and computational physics, many-body systems, and quantum theory."
-  >
-  <style>
-    :root {
-      --bg: #f5f1e8;
-      --surface: #fffdf8;
-      --surface-strong: #f0e8da;
-      --text: #1f1d1a;
-      --muted: #666055;
-      --line: #ddd2be;
-      --accent: #0f5c4d;
-      --accent-soft: #dceee8;
-      --shadow: 0 18px 40px rgba(45, 37, 20, 0.08);
-      --max-width: 1040px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partha Mallik | Physics Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
 
-    * {
-      box-sizing: border-box;
-    }
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <h1>Partha Mallik</h1>
+        </div>
 
-    html {
-      scroll-behavior: smooth;
-    }
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About Me</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Resume</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact Me</a>
+        </nav>
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(15, 92, 77, 0.08), transparent 32%),
-        linear-gradient(180deg, #f8f4ec 0%, #f3eee3 100%);
-      line-height: 1.7;
-    }
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle dark/light mode"
+        >
+          <!-- SVG icon stays here -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
 
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-    }
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
 
-    .page {
-      width: min(var(--max-width), calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 1.25rem 0 4rem;
-    }
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.75rem 0 1.5rem;
-    }
-
-    .brand {
-      font-size: 0.95rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.9rem 1.25rem;
-      font-size: 0.95rem;
-    }
-
-    .hero {
-      background: rgba(255, 253, 248, 0.84);
-      border: 1px solid rgba(221, 210, 190, 0.85);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(15, 92, 77, 0.14), transparent 68%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 1rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.2;
-      font-weight: 600;
-    }
-
-    h1 {
-      max-width: 12ch;
-      font-size: clamp(2.8rem, 5vw, 4.8rem);
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      max-width: 62ch;
-      margin: 0 0 1.5rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.75rem;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.5rem;
-      margin-top: 1.75rem;
-    }
-
-    .card {
-      grid-column: span 6;
-      padding: 1.7rem;
-      border-radius: 22px;
-      background: rgba(255, 253, 248, 0.92);
-      border: 1px solid rgba(221, 210, 190, 0.85);
-      box-shadow: var(--shadow);
-    }
-
-    .card.full {
-      grid-column: 1 / -1;
-    }
-
-    .section-title {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .section-intro {
-      margin: 0 0 1.25rem;
-      color: var(--muted);
-    }
-
-    .item {
-      padding: 1rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .item:first-of-type {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .item-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.25rem;
-      flex-wrap: wrap;
-    }
-
-    .item-title h3 {
-      font-size: 1.08rem;
-    }
-
-    .date {
-      color: var(--muted);
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
-
-    .item-subtitle {
-      margin: 0.15rem 0 0.55rem;
-      color: var(--muted);
-    }
-
-    ul {
-      margin: 0.5rem 0 0;
-      padding-left: 1.1rem;
-    }
-
-    li + li {
-      margin-top: 0.35rem;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .tag {
-      padding: 0.7rem 0.95rem;
-      border-radius: 14px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      font-size: 0.95rem;
-    }
-
-    .contact-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem 1.2rem;
-      margin-top: 1rem;
-    }
-
-    .contact-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 120px;
-      padding: 1.1rem 1.2rem;
-      border-radius: 14px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      color: var(--text);
-      line-height: 1.5;
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-card strong {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-size: 0.95rem;
-    }
-
-    .contact-card span {
-      margin-top: 0.2rem;
-      color: var(--muted);
-    }
-
-    footer {
-      margin-top: 1.75rem;
-      padding: 1.4rem 0 0;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 820px) {
-      .hero {
-        padding: 2.2rem 1.4rem;
-      }
-
-      .card,
-      .card.full {
-        grid-column: 1 / -1;
-      }
-
-      .contact-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page {
-        width: min(var(--max-width), calc(100% - 1rem));
-      }
-
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav {
-        justify-content: flex-start;
-      }
-
-      h1 {
-        max-width: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header class="topbar">
-      <div class="brand">Partha Mallik</div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#volunteer">Volunteer</a>
-        <a href="#languages">Languages</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#contact">Contact</a>
-      </nav>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
     </header>
 
     <main>
-      <section class="hero" id="about">
-        <span class="eyebrow">Physics Student</span>
-        <h1>Partha Mallik</h1>
-        <p>
-          Master’s student in Physics with strong academic training in quantum mechanics,
-          condensed matter physics, and computational methods. Interested in theoretical
-          and computational physics with a focus on many-body systems and quantum theory.
-        </p>
-        <div class="hero-links">
-          <a class="chip" href="mailto:parthamallik007@gmail.com">parthamallik007@gmail.com</a>
-          <span class="chip">Hürth-Efferen, Deutschland</span>
-          <a class="chip" href="https://parthamallik.com" target="_blank" rel="noreferrer">parthamallik.com</a>
-          <a class="chip" href="https://github.com/parthamallik007" target="_blank" rel="noreferrer">github.com/parthamallik007</a>
-          <a class="chip" href="https://www.linkedin.com/in/parthamallik-phy" target="_blank" rel="noreferrer">parthamallik-phy</a>
+      <!-- Home Section -->
+      <section id="home">
+        <div class="container">
+          <div class="home-content">
+            <div class="home-text">
+              <h2>Hello, I am Partha Mallik</h2>
+
+              <h3>Physics Master's Student</h3>
+
+              <p>
+                I am passionate about quantum mechanics, condensed matter
+                physics, computational tools, and research-driven learning.
+              </p>
+
+              <p>
+                I enjoy learning physics deeply while building practical
+                technical skills for research and problem-solving.
+              </p>
+
+              <div class="home-buttons">
+                <a href="#contact">Contact Me</a>
+                <a href="#projects">View Projects</a>
+              </div>
+            </div>
+
+            <div class="home-image">
+              <img
+                src="images/profile.jpg"
+                alt="Profile picture of Partha Mallik"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <div class="grid">
-        <section class="card" id="education">
-          <h2 class="section-title">Education</h2>
-          <div class="item">
-            <div class="item-title">
-              <h3>M.Sc. in Physics</h3>
-              <span class="date">2023 - Present</span>
-            </div>
-            <p class="item-subtitle">University of Cologne, Germany</p>
-          </div>
-          <div class="item">
-            <div class="item-title">
-              <h3>B.Sc. in Physics</h3>
-              <span class="date">2014 - 2021</span>
-            </div>
-            <p class="item-subtitle">Shahjalal University of Science and Technology, Bangladesh</p>
-          </div>
-        </section>
+      <!-- About Section -->
+      <section id="about">
+        <div class="container">
+          <h2>About Me</h2>
 
-        <section class="card">
-          <h2 class="section-title">Technical Training</h2>
-          <div class="item">
-            <div class="item-title">
-              <h3>Scientific Programming with Python</h3>
-              <span class="date">Apr 2024</span>
+          <div class="about-container">
+            <div class="about-image">
+              <img src="images/profile.jpg" alt="About Partha Mallik" />
             </div>
-            <p class="item-subtitle">University of Cologne, Germany</p>
+
+            <div class="about-text">
+              <p>
+                I am Partha Mallik, a master's student in Physics at the
+                University of Cologne with a strong interest in theoretical and
+                computational physics.
+              </p>
+
+              <p>
+                My academic interests include quantum mechanics, condensed
+                matter physics, computational methods, and research-oriented
+                learning.
+              </p>
+
+              <p>
+                Alongside physics, I enjoy developing technical skills in
+                programming, Linux systems, GitHub, and scientific
+                problem-solving tools.
+              </p>
+
+              <p>
+                My goal is to continuously improve both my scientific
+                understanding and practical technical abilities for future
+                research and professional development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <div class="container">
+          <h2>Skills</h2>
+
+          <div class="skills-container">
+            <div class="skill-category">
+              <h3>Technical Skills</h3>
+              <ul>
+                <li>Linux (bash Scripting, CLI)</li>
+                <li>Scientific Documentation</li>
+                <li>Data Analysis</li>
+                <li>Git & GitHub</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Programming Skills</h3>
+              <ul>
+                <li>Python</li>
+                <li>Julia</li>
+                <li>R</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Tools & Software</h3>
+              <ul>
+                <li>VS Code</li>
+                <li>Jupyter Notebook</li>
+                <li>LaTeX</li>
+                <li>MATLAB</li>
+                <li>Mathematica</li>
+                <li>Origin</li>
+                <li>Microsoft Office (Excel, PowerPoint, Word)</li>
+                <li>Canva</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume Section -->
+      <section id="resume">
+        <div class="container">
+          <h2>Resume</h2>
+
+          <!-- Academic Studies -->
+          <div class="resume-subsection">
+            <h3 class="resume-subtitle">Academic Studies</h3>
+
+            <div class="academic-container">
+              <div class="academic-card academic-card-large">
+                <p class="academic-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  October, 2022 - Present
+                </p>
+
+                <h3>Master of Science in Physics</h3>
+
+                <div class="academic-tags">
+                  <span>Mandatory Course: Advanced Quantum Mechanics</span>
+                  <span>Lab: Condensed Matter Physics</span>
+                  <span>Lab: Nuclear Physics</span>
+                  <span>Primary Area: Condensed Matter Physics</span>
+                  <span>Secondary Area: Computational Physics</span>
+                  <span>Elective Area: Deep Learning and Physics</span>
+                  <span>Scientific Programming in Python</span>
+                </div>
+
+                <p class="academic-university">
+                  University of Cologne, Germany
+                </p>
+              </div>
+
+              <div class="academic-card">
+                <p class="academic-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  March, 2015 - April, 2019
+                </p>
+
+                <h3>Bachelor of Science in Physics</h3>
+
+                <p>
+                  Fundamental courses in physics including statistical
+                  mechanics, electromagnetism, and experimental techniques.
+                </p>
+
+                <p class="academic-university">
+                  Shahjalal University of Science & Technology, Bangladesh
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Experience -->
+          <div class="resume-subsection">
+            <h3 class="resume-subtitle">Professional Experience</h3>
+
+            <div class="experience-container">
+              <div class="experience-card">
+                <p class="experience-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Feb 2024 - Jan 2026
+                </p>
+
+                <h3>Kitchen Assistant (Grill & Salad)</h3>
+                <p>Ataco GmbH (Atawich)</p>
+              </div>
+
+              <div class="experience-card">
+                <p class="experience-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Feb 2024 - Jan 2026
+                </p>
+
+                <h3>Kitchen Assistant (Sushi)</h3>
+                <p>Boname Köln Factory</p>
+              </div>
+
+              <div class="experience-card">
+                <p class="experience-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Feb 2024 - Jan 2026
+                </p>
+
+                <h3>Kitchen Assistant (Salad)</h3>
+                <p>Okinii</p>
+              </div>
+
+              <div class="experience-card">
+                <p class="experience-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  May 2026 - Present
+                </p>
+
+                <h3>Assistant Chef</h3>
+                <p>Cloud Kitchen</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Training -->
+          <div class="resume-subsection">
+            <h3 class="resume-subtitle">Technical Training</h3>
+
+            <div class="training-container">
+              <div class="training-card">
+                <p class="training-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Apr 2024
+                </p>
+
+                <h3>Scientific Programming with Python</h3>
+
+                <p class="training-location">University of Cologne, Germany</p>
+
+                <p class="training-description">
+                  Learned core Python techniques for modeling, simulation,
+                  visualization, and scientific data handling.
+                </p>
+
+                <div class="training-tags">
+                  <span>NumPy</span>
+                  <span>SciPy</span>
+                  <span>Matplotlib</span>
+                  <span>ODE-int</span>
+                  <span>glob</span>
+                  <span>OOP</span>
+                  <span>Computational Physics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Languages & Hobbies -->
+          <div class="resume-subsection">
+            <div class="language-hobby-container">
+              <div class="language-hobby-column">
+                <h3 class="resume-subtitle">Languages</h3>
+
+                <div class="language-card">
+                  <div class="language-block">
+                    <h5>English</h5>
+                    <p>IELTS: Proficient User (C1)</p>
+                  </div>
+
+                  <div class="language-block">
+                    <h5>German</h5>
+                    <p>Level: Beginner (A1)</p>
+                  </div>
+
+                  <div class="language-block">
+                    <h5>Bangla</h5>
+                    <p>Level: Native</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="language-hobby-column">
+                <h3 class="resume-subtitle">Hobbies</h3>
+
+                <div class="hobby-card">
+                  <ul>
+                    <li>Cooking</li>
+                    <li>Travelling</li>
+                    <li>Music</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resume Download Buttons -->
+          <div class="resume-download">
+            <a href="documents/Resume_Partha_Mallik.pdf" target="_blank">
+              Download Resume
+            </a>
+
+            <a href="documents/CV_Partha_Mallik.pdf" target="_blank">
+              Download CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <div class="container">
+          <h2>Projects</h2>
+
+          <div class="projects-container">
+            <div class="project-card">
+              <h3>Projects Coming Soon</h3>
+
+              <p>
+                I am currently building projects while learning programming,
+                scientific computing, Linux systems, and web development.
+              </p>
+
+              <p>
+                Future projects and research-related work will be added here as
+                I continue developing my technical and academic skills.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="container">
+          <h2>Contact Me</h2>
+
+          <div class="contact-container">
+            <div class="contact-form">
+              <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input
+                      type="text"
+                      id="first-name"
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input
+                      type="text"
+                      id="last-name"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="Phone Number (Optional)"
+                />
+
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter Your Email"
+                  required
+                />
+
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
+
+                <textarea
+                  id="message"
+                  placeholder="Write your message here"
+                  required
+                ></textarea>
+
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+
+            <div class="contact-details">
+              <h3>Contact details</h3>
+
+              <div class="contact-item">
+                <h4>EMAIL</h4>
+                <p>
+                  <a href="mailto:parthamallik007@gmail.com">
+                    parthamallik007@gmail.com
+                  </a>
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <h4>PHONE</h4>
+                <p>
+                  <a href="tel:+491234567890">+49 1234567890</a>
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <h4>ADDRESS</h4>
+                <p>Hahnenstraße 9, 50354 Hürth, Germany</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-text">
+            <h2>Partha Mallik</h2>
+
             <p>
-              Learned core Python techniques for modeling, simulation, visualization,
-              and scientific data handling.
+              Physics Master's Student focused on learning, research, and
+              technical skill development.
             </p>
           </div>
-        </section>
 
-        <section class="card full" id="skills">
-          <h2 class="section-title">Technical Skills</h2>
-          <p class="section-intro">
-            Tools and working knowledge developed through academic study and technical training.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Python (NumPy, basic scripting)</span>
-            <span class="tag">Julia</span>
-            <span class="tag">R</span>
-            <span class="tag">LaTeX</span>
-            <span class="tag">Origin</span>
-            <span class="tag">Git</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">Linux (bash, CLI)</span>
-            <span class="tag">Excel</span>
-            <span class="tag">PowerPoint</span>
-            <span class="tag">Word</span>
-          </div>
-        </section>
-
-        <section class="card full" id="experience">
-          <h2 class="section-title">Experience</h2>
-          <div class="item">
-            <div class="item-title">
-              <h3>Kitchen Assistant (Grill &amp; Salad)</h3>
-              <span class="date">Feb 2024 - Jan 2026</span>
-            </div>
-            <p class="item-subtitle">Ataco GmbH (Atawich)</p>
-          </div>
-          <div class="item">
-            <div class="item-title">
-              <h3>Kitchen Assistant (Sushi)</h3>
-              <span class="date">Feb 2024 - Jan 2026</span>
-            </div>
-            <p class="item-subtitle">boname Köln Factory</p>
-          </div>
-          <div class="item">
-            <div class="item-title">
-              <h3>Kitchen Assistant (Salat)</h3>
-              <span class="date">Feb 2024 - Jan 2026</span>
-            </div>
-            <p class="item-subtitle">Okinii</p>
-          </div>
-        </section>
-
-        <section class="card" id="volunteer">
-          <h2 class="section-title">Volunteer</h2>
-          <div class="item">
-            <div class="item-title">
-              <h3>General Member</h3>
-              <span class="date">2025 - Present</span>
-            </div>
-            <p class="item-subtitle">Serve the City Köln</p>
-            <ul>
-              <li>Participated in community service initiatives.</li>
-              <li>Worked in team-based environments.</li>
-            </ul>
-          </div>
-          <div class="item">
-            <div class="item-title">
-              <h3>General Member</h3>
-              <span class="date">Nov 2025 - Present</span>
-            </div>
-            <p class="item-subtitle">Efferino</p>
-            <ul>
-              <li>Contributed to local volunteering activities.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="card" id="languages">
-          <h2 class="section-title">Languages</h2>
-          <div class="tag-list">
-            <span class="tag">English - Fluent</span>
-            <span class="tag">Bengali - Native</span>
-            <span class="tag">Deutsch - Beginner</span>
-          </div>
-        </section>
-
-        <section class="card" id="hobbies">
-          <h2 class="section-title">Hobbies</h2>
-          <div class="tag-list">
-            <span class="tag">Cooking</span>
-            <span class="tag">Travelling</span>
-            <span class="tag">Music</span>
-          </div>
-        </section>
-
-        <section class="card" id="contact">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-intro">
-            I’m open to academic, technical, and collaborative opportunities related to physics and computation.
-          </p>
-          <div class="contact-list">
-            <a class="contact-card" href="mailto:parthamallik007@gmail.com">
-              <strong>Email</strong>
-              <span>parthamallik007@gmail.com</span>
+          <div class="footer-links">
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <div class="contact-card">
-              <strong>Phone</strong>
-              <span>+49 15736791249</span>
-            </div>
-            <a class="contact-card" href="https://parthamallik.com" target="_blank" rel="noreferrer">
-              <strong>Website</strong>
-              <span>parthamallik.com</span>
+
+            <a
+              href="https://instagram.com/parthamallik007/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-instagram"></i>
             </a>
-            <a class="contact-card" href="https://github.com/parthamallik007" target="_blank" rel="noreferrer">
-              <strong>GitHub</strong>
-              <span>github.com/parthamallik007</span>
+
+            <a
+              href="https://x.com/parthamallik007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
             </a>
-            <a class="contact-card" href="https://www.linkedin.com/in/parthamallik-phy" target="_blank" rel="noreferrer">
-              <strong>LinkedIn</strong>
-              <span>parthamallik-phy</span>
+
+            <a
+              href="https://www.linkedin.com/in/parthamallik-phy/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <div class="contact-card">
-              <strong>Location</strong>
-              <span>Hürth-Efferen, Deutschland</span>
-            </div>
+
+            <a
+              href="https://researchgate.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-researchgate"></i>
+            </a>
+
+            <a
+              href="https://github.com/parthamallik007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
-        </section>
+        </div>
       </div>
-    </main>
 
-    <footer>
-      <p>© 2026 Partha Mallik. Built as a simple student portfolio website.</p>
+      <p class="copyright">© 2026 Partha Mallik. All rights reserved.</p>
     </footer>
-  </div>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
